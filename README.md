@@ -11,7 +11,7 @@ I recently made the switch to i3wm, but noticed that I didn't really enjoy the i
     ...and more to come! (See *Planned Features* below)
 
 ### Customization
-tbar is customizable in gratuitously many ways. If you want, the options are out there to:
+tbar is gratuitously customizable. If you want, the options are out there to:
   * Change the foreground and background colors of each individual piece of your tbar (e.g. widget labels, non-widget labels, widget contents, special widget contents, etc.)
   * Change the time widget format (e.g. 24-hour, include AM/PM, put a gap between the time and AM/PM, etc.)
   * Change the percent at which your battery widget will change color to signify low power
@@ -29,7 +29,7 @@ tbar is customizable in gratuitously many ways. If you want, the options are out
 1. Start tmux in your terminal
 1. Split the window horizontally (i.e. two terminals on top of one another)
 1. Shrink the upper terminal as small as you please
-1. Run `python tbar.py` in it
+1. Run `python /your/path/to/tbar.py` in it
 
 #### To configure tbar:
 1. Open up the included `tbar.conf` in your text editor of choice

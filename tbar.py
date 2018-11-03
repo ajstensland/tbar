@@ -158,18 +158,22 @@ class TBar:
         # Add in the label with color
         widget += COLORS[self.config["COLORS"]["battlabel"]] + COLORS[self.config["COLORS"]["battlabelbg"]] + self.config["BATTERY"]["label"].replace("'", "") + COLORS["end"]
 
-        # Add battery color
-        widget += COLORS[self.config["COLORS"]["battcontent"]] + COLORS[self.config["COLORS"]["battcontentbg"]]
-
         # Get battery data
         with open("/sys/class/power_supply/BAT0/charge_now", "r") as current_file:
             current_batt = int(current_file.readline())
 
         with open("/sys/class/power_supply/BAT0/charge_full", "r") as full_file:
             full_batt = int(full_file.readline())
+        
 
         # Calculate battery percentage
         batt_percent = int(current_batt / full_batt * 100)
+        
+        # Add battery color
+        if batt_percent < int(self.config["BATTERY"]["lowpercent"]): 
+            widget += COLORS[self.config["COLORS"]["battcontentlow"]] + COLORS[self.config["COLORS"]["battcontentlowbg"]]
+        else:
+            widget += COLORS[self.config["COLORS"]["battcontent"]] + COLORS[self.config["COLORS"]["battcontentbg"]]
 
         # Add to widget
         widget += str(batt_percent) + "%"

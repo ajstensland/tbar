@@ -50,6 +50,6 @@ tbar is gratuitously customizable. If you want, the options are out there to:
 1. Windows/MacOS support
 
 ### Fixes
-1. Change `line1` in config to `format` or something, since it determines all lines
 1. Simplify time formatting logic
 1. Disable newline printing
+1. ~~~Change `line1` in config to `format` or something, since it determines all lines~~~ (Fixed 11/3/18 #74ac868)

@@ -107,7 +107,7 @@ class TBar:
         widget += ":"
 
         # Add it to the widget with formatting
-        widget += str(minute) if minute > 10 else "0" + str(minute)
+        widget += str(minute) if minute >= 10 else "0" + str(minute)
 
         # If the user opted for AM/PM...
         if self.config["TIME"].getboolean("ampm") and not self.config["TIME"].getboolean("24hr"):

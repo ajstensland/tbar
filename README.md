@@ -1,4 +1,5 @@
-# tbar
+![logo](assets/titlebar.png)
+
 An ultra-configurable terminal status bar for tmux users.
 
 I recently made the switch to i3wm, but noticed that I didn't really enjoy the i3-bar. I didn't really want an extra GUI element taking up screen real estate, and I wanted everything to be consolidated into one place. One day, I noticed that a status bar could easily fit inside of a shrunken tmux pane, and thus tbar was born!

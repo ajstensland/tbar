@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-from datetime import datetime   # To fetch date and time info
-from time import sleep          # To sleep between data fetches
+from datetime import datetime
+from time import sleep
 import sys
 from configparser import ConfigParser
 from subprocess import call

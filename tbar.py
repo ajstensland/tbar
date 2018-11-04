@@ -63,7 +63,7 @@ class TBar:
             sleep(int(self.config["OTHER"]["sleeptime"]))
 
     def display(self):
-        print(COLORS[self.config["COLORS"]["default"]] + COLORS[self.config["COLORS"]["defaultbg"]]+ self.config["LAYOUT"]["format"].replace("'", "").replace("<b>", COLORS["end"]  + self.battery_widget() + COLORS[self.config["COLORS"]["default"]] + COLORS[self.config["COLORS"]["defaultbg"]]).replace("<t>", COLORS["end"] + self.time_widget() + COLORS[self.config["COLORS"]["default"]] + COLORS[self.config["COLORS"]["defaultbg"]]) + COLORS["end"])
+        print("\033[F\033[2K" + COLORS[self.config["COLORS"]["default"]] + COLORS[self.config["COLORS"]["defaultbg"]]+ self.config["LAYOUT"]["format"].replace("'", "").replace("<b>", COLORS["end"]  + self.battery_widget() + COLORS[self.config["COLORS"]["default"]] + COLORS[self.config["COLORS"]["defaultbg"]]).replace("<t>", COLORS["end"] + self.time_widget() + COLORS[self.config["COLORS"]["default"]] + COLORS[self.config["COLORS"]["defaultbg"]]) + COLORS["end"])
         
 
     def time_widget(self):

@@ -52,5 +52,5 @@ tbar is gratuitously customizable. If you want, the options are out there to:
 
 ### Fixes
 1. Simplify time formatting logic
-1. Disable newline printing
+1. <strike>Disable newline printing</strike> (Fixed 11/3/18 #1651144)
 1. <strike>Change `line1` in config to `format` or something, since it determines all lines</strike> (Fixed 11/3/18 #74ac868)

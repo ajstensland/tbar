@@ -63,9 +63,8 @@ class TBar:
             sleep(int(self.config["OTHER"]["sleeptime"]))
 
     def display(self):
-        print("\033[F\033[2K" + COLORS[self.config["COLORS"]["default"]] + COLORS[self.config["COLORS"]["defaultbg"]]+ self.config["LAYOUT"]["format"].replace("'", "").replace("<b>", COLORS["end"]  + self.battery_widget() + COLORS[self.config["COLORS"]["default"]] + COLORS[self.config["COLORS"]["defaultbg"]]).replace("<t>", COLORS["end"] + self.time_widget() + COLORS[self.config["COLORS"]["default"]] + COLORS[self.config["COLORS"]["defaultbg"]]) + COLORS["end"])
+        print("\033[F\033[2K" + COLORS[self.config["COLORS"]["default"]] + COLORS[self.config["COLORS"]["defaultbg"]]+ self.config["LAYOUT"]["format"].replace("'", "").replace("<b>", COLORS["end"]  + self.battery_widget() + COLORS[self.config["COLORS"]["default"]] + COLORS[self.config["COLORS"]["defaultbg"]]).replace("<t>", COLORS["end"] + self.time_widget() + COLORS[self.config["COLORS"]["default"]] + COLORS[self.config["COLORS"]["defaultbg"]]).replace("<p>", COLORS["end"] + self.power_widget() + COLORS[self.config["COLORS"]["default"]] + COLORS[self.config["COLORS"]["defaultbg"]]) + COLORS["end"])
         
-
     def time_widget(self):
         # Create base string to add to
         widget = ""
@@ -171,7 +170,7 @@ class TBar:
         
         # Add battery color
         if batt_percent < int(self.config["BATTERY"]["lowpercent"]): 
-            widget += COLORS[self.config["COLORS"]["battcontentlow"]] + COLORS[self.config["COLORS"]["battcontentlowbg"]]
+            widget+= COLORS[self.config["COLORS"]["battcontentlow"]] + COLORS[self.config["COLORS"]["battcontentlowbg"]]
         else:
             widget += COLORS[self.config["COLORS"]["battcontent"]] + COLORS[self.config["COLORS"]["battcontentbg"]]
 
@@ -184,6 +183,24 @@ class TBar:
         # Return the widget
         return widget
         
+    def power_widget(self):
+        # Create base widget
+        widget = ""
+        
+        # Get status
+        with open("/sys/class/power_supply/BAT0/status") as status_file:
+            status = status_file.readline()
+
+        # Add to content
+        if status == "Charging\n":
+            widget += COLORS[self.config["COLORS"]["powerlabelc"]] + COLORS[self.config["COLORS"]["powerlabelcbg"]] + self.config["POWER"]["label"].replace("'", "") + COLORS["end"] + COLORS[self.config["COLORS"]["powercontentc"]] + COLORS[self.config["COLORS"]["powercontentcbg"]] + self.config["POWER"]["chargingmsg"].replace("'", "") + COLORS["end"]
+        else:
+            widget += COLORS[self.config["COLORS"]["powerlabeld"]] + COLORS[self.config["COLORS"]["powerlabeldbg"]] + self.config["POWER"]["label"].replace("'", "") + COLORS["end"] + COLORS[self.config["COLORS"]["powercontentd"]] + COLORS[self.config["COLORS"]["powercontentdbg"]] + self.config["POWER"]["dischargingmsg"].replace("'", "") + COLORS["end"]
+
+        # Return widget
+        return widget
+
+
 
 if __name__ == "__main__":
     TBar().run()

@@ -8,6 +8,7 @@ I recently made the switch to i3wm, but noticed that I didn't really enjoy the i
 ### Widgets
 1. Time
 1. Battery Percentage
+1. Power Status
 
     ...and more to come! (See *Planned Features* below)
 
@@ -16,6 +17,7 @@ tbar is gratuitously customizable. If you want, the options are out there to:
   * Change the foreground and background colors of each individual piece of your tbar (e.g. widget labels, non-widget labels, widget contents, special widget contents, etc.)
   * Change the time widget format (e.g. 24-hour, include AM/PM, put a gap between the time and AM/PM, etc.)
   * Change the percent at which your battery widget will change color to signify low power
+  * Change the specified messages for the power status widget to display for different states
   * Change the layout of your tbar with intuitive markup (e.g. spread it over multiple lines, add decorations and extra text, etc.)
 
 ## Install
@@ -41,7 +43,7 @@ tbar is gratuitously customizable. If you want, the options are out there to:
 ## Planned Features
 ### Widgets
 1. Battery Estimated Time (with all of the formatting options of the time widget)
-1. Power Status (e.g. using battery, charging)
+1. <strike>Power Status (e.g. using battery, charging)</strike> (Added 11/6/18 #945a816)
 1. Date (with many different date formats)
 
 ### Other Features
